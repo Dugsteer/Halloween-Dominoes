@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fun, free  boardgame player for English classes. Play any boardgame you find on the net in your online classes or on a screen.">
-    <meta name="keywords" content="English boardgame online games teaching lessons Zoom Skype">
-    <title>Play Any ESL Boardgame Online</title>
+    <meta name="description" content="Fun, free online dominoes player for English classes. Play any boardgame you find on the net in your online classes or on a screen.">
+    <meta name="keywords" content="English domino dominoes online games teaching lessons Zoom Skype">
+    <title>Halloween Dominoes Online</title>
     <link rel="icon" type="image/png"
     href="favicon.png";
   />
@@ -18,7 +18,7 @@
 
   <div class="loader-div" id="loaderDiv" onload = "checkForTop();">
     <div class="loader-container">
-      <img class="ghost" src="img/random.png" alt=""> 
+      <img class="ghost" src="img/loader-ghost.svg" alt=""> 
       <p class="shadowFrame">
         <svg version="1.1" class="shadow" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="61px" y="20px"
        width="122.436px" height="39.744px" viewBox="0 0 122.436 39.744" enable-background="new 0 0 122.436 39.744"
@@ -37,7 +37,7 @@
           </svg>    </a>
         <h3 class="nav-bar__title">Esl-Ology.Com</h3>
         <div class="nav-bar__title-page">
-          <span class="nav-bar__title-page-main" id="pageTitle">BOARDGAME PLAYER</span>
+          <span class="nav-bar__title-page-main" id="pageTitle">HALLOWEEN DOMINOES</span>
       </div>
       <div class="nav-bar__links">
         <a href="index.html" class="nav-bar__link link3">Home</a>
@@ -74,43 +74,32 @@
   
        
           <div class="introduction__text">
-            <h1>HOW TO PLAY ANY BOARDGAME ONLINE
+            <h1>HOW TO PLAY HALLOWEEN DOMINOES
             </h1>
             <p>
-            Teachers and creators have made hundreds of board games to help students practise their English in class. Many of these take the form of PDFs, JGP files or PNGs to print and play and can be found on top sites such as <a href="https://en.islcollective.com/english-esl-worksheets/search/board+game">ISL Collective</a>, <a href="https://busyteacher.org/20378-top-10-print-and-go-games-best-of-busy-teacher.html">Busy Teacher</a> and many others. But what do you do when your class is online? Or if you don't want to waste paper printing? Here is one solution: <br>
-            1. Find and download the game you want to play and, if it's a PDF file, take a screen-shot or convert it to a JPG image file with a free converter like the one at <a href="https://pdf2jpg.net/" target="blank" title="PDF to JPG Converter - Convert PDF to JPG">PDF to JPG Converter</a>. If a DOC export it to a PDF in your word-processor and then convert to JPG. <br>
-            2. Replace Super Questions by clicking Load Game to open the your game image here. There are pieces you can drag and a six sided dice. Now your Skype/Zoom/Meeting classes will now have one more option! By the way, we collect no information and image files are not uploaded to any server. The images stay on your computer/device. <br>
-            3. Finally, if the game comes out the wrong shape, drag it from the bottom right corner to resize for your screen. Happy Playing!
-            </p>
+            Divide into two teams. Click the button to get the first piece and drag it to the centre of the board. Click the button for player 1's first piece. If they can place it, great. Otherwise it must go in a pile on the left. Player 2's pieces go in a pile on the right. Double click the dominoes to turn them. The player who gets "Game Over" wins!            </p>
           
              </div>
           </div>
     
-          <div class="contents">
+          <div class="contents" id="contents">
+              <button class="littlebut" onclick="newTile();">Domino</button>
           
-            <div id="board" class="board">
-           
-
-              <div class="imgdiv" id='imgdiv'>
-                <div class="pull-tab"></div>
-                <div id="piece1" class="id1"><img src="img/redpiece.svg" alt=""></div>
-                  <div id="piece2" class="id1"><img src="img/blackpiece.svg" alt=""></div>
-                  <input type='file' id="getFile" style="display:none">
-                  <img id="mypic" src="img/super-questions.jpg" alt="your image" height=200 width=auto>
-              </div>
-                  
-          </div>
-            <div class="dicediv" id="dicediv">
-                <div class="dice" id="dice">1</div>
-                <button class="roll" id="roll">ROLL</button>
-                <div class="buttondiv">
-                  <button class="butclass" id="getButton" onclick="document.getElementById('getFile').click()">Load Game</button>
-                  <button class="butclass" id="demoBut" onclick="playDemo();">Play This</button>
-                  <p class="drag2" id="draggy">Drag pieces to play</p>
-             </div>
-              </div>
-          
-          
+      <div id="gameover" class="dominox" style="display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  background: grey;
+  border-radius: 5px;
+        font-weight: bolder;
+        font-size: larger;
+  justify-content: center;
+box-shadow: 2px 2px 4px -1px #B2B2B2;
+  width: 320px;
+  height: 90px">
+    <div id="domleft" class="domleft">GAME</div>
+    <div id="domright" class="domright">OVER</div>
+  </div>
         </div>
       
 

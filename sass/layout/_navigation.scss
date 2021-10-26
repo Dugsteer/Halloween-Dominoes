@@ -1,6 +1,6 @@
 .nav-bar {
   background-color: #fff;
-  color: $color-blue;
+  color: $color-halloween-background;
   display: grid;
   height: 7rem;
   width: 100vw;
@@ -105,9 +105,9 @@
       width: 4rem;
       margin-left: 2rem;
       justify-self: center;
-      fill: $color-blue;
+      fill: $color-halloween-background;
       &:hover {
-        fill: $color-yellow;
+        fill: $color-halloween-orange;
       }
     }
   }
@@ -121,12 +121,12 @@
   &__link {
     font-size: 1.4rem;
     align-self: center;
-    color: $color-blue;
+    color: $color-halloween-background;
     font-family: Montserrat, sans-serif;
     text-decoration: none;
     display: none;
     &:hover {
-      color: $color-yellow;
+      color: $color-halloween-orange;
     }
 
     &.link2,

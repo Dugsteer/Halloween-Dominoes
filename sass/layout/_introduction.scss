@@ -1,9 +1,9 @@
 .introduction {
   position: relative;
-  grid-row: 3/4;
+  grid-row: 2/3;
   width: 800px;
   height: auto;
-  background-color: #fff;
+  background-color:$color-halloween-white;
   justify-self: center;
   align-self: center;
   margin: 2rem;
@@ -36,7 +36,7 @@
   & a {
     display: inline;
     text-decoration: none;
-    color: $color-blue;
+    color: $color-halloween-background;
     cursor: pointer;
   }
 
@@ -56,7 +56,7 @@
   }
 
   &__text h1 {
-    color: $color-blue;
+    color: $color-halloween-background;
   }
   &__choices {
     display: flex;

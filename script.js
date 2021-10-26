@@ -25,87 +25,84 @@ function toggler() {sidey.classList.toggle("block");}
 myFunction(blue);
 
 //GAME FUNCTIONALITY
-const img1 = document.getElementById('mypic'); 
-const inputpanel = document.getElementById('inputpanel');
-const getButton = document.getElementById('getButton');
-const dicediv = document.getElementById('dicediv');
-const buttondiv = document.getElementById('buttondiv');
-const demoBut = document.getElementById('demoBut');
-const draggy = document.getElementById('draggy');
+const container = document.getElementById("contents");
+let counter = 0;
+let deck = true;
+const tiles = [
+  ["img/bone.svg", "witch"],
+  ["img/witch.svg", "werewolf"],
+  ["img/werewolf.svg", "zombie"],
+  ["img/zombie.svg", "bat"],
+  ["img/bat.svg", "cauldron"],
+  ["img/cauldron.svg", "frank"],
+  ["img/frankenstein.svg", "ghost"],
+  ["img/ghost.svg", "grave"],
+  ["img/grave.svg", "monster"],
+  ["img/monster.svg", "mummy"],
+  ["img/mummy.svg", "pumpkin"],
+  ["img/pumpkin.svg", "skeleton"],
+  ["img/skeleton.svg", "skull"],
+  ["img/skull.svg", "spider"],
+  ["img/spider.svg", "bone"],
+];
 
-function playDemo(){
-  getButton.style.display = "none";
-  img1.style.display = "block";
-  dicediv.style.display = "flex";
-  demoBut.style.display = "none";
-  draggy.style.display = "none";
-
+// FISHER-YATES shuffle the tiles
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 }
 
+shuffle(tiles);
 
+// Add new domino tile
+function newTile() {
+  if (deck === false) {
+    document.getElementById("gameover").style.visibility = "visible";
+  } else if (deck === true) {
+    container.insertAdjacentHTML(
+      "afterbegin",
+      `<div id="domino${counter}" class="domino" style="display: flex;
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  align-items: center;
+  justify-content: center;
+  background: grey;
+  border-radius: 5px;
+  justify-content: center;
+  box-shadow: 2px 2px 4px -1px 594f73;
+  width: 320px;
+  height: 90px">
+    <div id="domleft" class="domleft"><img src="${tiles[counter][0]}"></div>
+    <div id="domright" class="domright">${tiles[counter][1]}</div>
+  </div>`
+    );
+    window[`domino${counter}`].addEventListener("dblclick", turnem);
+    dragElement(window[`domino${counter}`]);
 
-window.addEventListener('load', function() {
-  document.querySelector('input[type="file"]').addEventListener('change', function() {
-      if (this.files && this.files[0]) {
-          img1.src = URL.createObjectURL(this.files[0]);
-          getButton.style.display = "none";
-          img1.style.display = "block";
-          dicediv.style.display = "flex";
-          demoBut.style.display = "none";
-          draggy.style.display = "none";
-      }
-  });
-});
-
-const board = document.getElementById("board");
-const die = document.querySelector(".dice");
-const roll = document.getElementById("roll");
-const imgdiv = document.getElementById('imgdiv');
-const rolly = document.getElementById('rolly');
-const me = document.getElementById('me');
-
-
-function goforit(){
-  imgdiv.innerHTML = ` <img src="img/${rolly.value}" alt="">`;
-  rolly.style.display = "none";
-  me.style.display = "none";
-}
-
-function flash(){
-  die.classList.add('flash');
-}
-
-function flashoff(){
-  die.classList.remove('flash');
-}
-
-//rollDice
-function rollDice(){
-    // get a number between 0 and 5
-    let result= Math.floor(Math.random() * 6);
-    flash();
-    die.textContent="";
-    function setText(){
-      die.textContent = result + 1;
+    if (counter < tiles.length - 1) {
+      counter++;
+    } else {
+      deck = false;
     }
-    //set the dice text on the DOM to 1 to 6;
-    setTimeout(flashoff, 100);
-    setTimeout(setText, 200);
-};
+  }
+}
 
-roll.addEventListener('click', rollDice);
-
-
-// Move pieces
-dragElement(document.getElementById("piece1"));
-dragElement(document.getElementById("piece2"));
-// dragElement(document.getElementById("piece3"));
-// dragElement(document.getElementById("piece4"));
-
+// Drag domino function
 function dragElement(elmnt) {
-  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  var pos1 = 0,
+    pos2 = 0,
+    pos3 = 0,
+    pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
     elmnt.onmousedown = dragMouseDown;
-  
+  }
 
   function dragMouseDown(e) {
     e = e || window.event;
@@ -127,14 +124,32 @@ function dragElement(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
+    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
   }
 
   function closeDragElement() {
-    /* stop moving when mouse button is released:*/
+    // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
   }
 }
 
+//Rotate domino function
+function turnem(e) {
+  let checkforimage = e.target;
+  let item = e.target.parentElement;
+
+  // Make sure the clicked element is not an image
+  if (checkforimage.tagName === "IMG"){
+    return false;
+  } else if (item.style.transform === "rotate(-90deg)") {
+    item.style.transform = "rotate(0deg)";
+  } else if (item.style.transform === "rotate(0deg)") {
+    item.style.transform = "rotate(90deg)";
+  } else if (item.style.transform === "rotate(90deg)") {
+    item.style.transform = "rotate(-180deg)";
+  } else {
+    item.style.transform = "rotate(-90deg)";
+  }
+}
