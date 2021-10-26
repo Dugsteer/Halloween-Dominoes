@@ -1,0 +1,37 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-slate;
+
+
+}
+
+p {
+  font-family: Montserrat, sans-serif;
+  line-height: 1.9rem;
+  font-size: 1.6rem;
+  font-weight: 200;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+}
+
+h2 {
+  font-weight: bolder;
+  color: $color-halloween;
+}
+
+h3 {
+  font-weight: normal;
+}
+
+h4 {
+  font-weight: normal;
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 0.7rem;
+}

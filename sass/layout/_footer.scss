@@ -1,0 +1,41 @@
+
+
+.footer{
+  display: flex;
+  width: 100vw;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $color-blue;
+  padding: 1.5rem 0;
+  height: 7rem;
+  background-color: #fff;
+  box-shadow: $box-shadow-page;
+
+  @media only screen and (max-width: $bp-largest){
+    width: 100vw;
+  }
+
+  @media only screen and (max-width: $bp-smallest){
+    width: 100vw;
+    
+  }
+ 
+
+  &__copyright {
+    text-align: center;
+    line-height: 1.5;
+
+    p {
+    font-size: 1.2rem;
+      color:$color-blue;
+    }
+  }
+
+}
+
+#footer a{
+  color: $color-green;
+}
+

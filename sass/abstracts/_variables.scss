@@ -1,0 +1,39 @@
+// COLORS 
+
+$color-blue: #40a1da;
+$color-blue-dark: #2B6498;
+$color-green: #7ebc59;
+$color-green-dark: #70A950;
+$color-red: rgb(208, 3, 3);
+$color-slate: #33363b;
+$color-light-grey: #eaeaea;
+$color-old-light-blue: #335fff;
+$color-orange: #f6653c;
+$color-orange-dark: #dd5b36;
+$color-yellow: #ffe164;
+$color-halloween-orange: #F75F1C;
+$color-halloween: rgb(17, 3, 56);
+$color-halloween-white: #e8e4c9;
+$color-halloween-orange: #F75F1C;
+$color-halloween-green:  #FF9A00;
+$color-halloween-background: #594f73;
+$color-halloween-text: rgb(18, 4,55);
+
+$color-white: #fff;
+$color-black: #000;
+
+// FONT
+$default-font-size: 1.6rem;
+
+//BOX SHADOWS
+$box-shadow-small: 1px 1px 2px 2px rgba(0,0,0,0.1);
+$box-shadow-large: 3px 3px 3px 2px rgba(0,0,0,0.4);
+$box-shadow-page: 3px 0px 1px 0px rgba(0,0,0,.4);
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em;   // 1200px
+$bp-large: 62.5em;   // 1000px
+$bp-medium: 50em;    // 800px;
+$bp-small: 37.5em;    // 600px;
+$bp-smallest: 28em;
+$bp-teeny: 28em;
